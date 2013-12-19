@@ -1,0 +1,21 @@
+extends layout
+
+block append head
+  script(type='text/javascript' src='/javascripts/enviroment.js')
+  script(type='text/javascript' src='/javascripts/game.js')
+
+block content
+  header
+  div(class='fourth')
+    div#oponent_grid
+  div#messagebox(class="terminal messages")
+    p game messages
+    div#messages
+  div#own_grid(class='fourth')
+  div(class='small')
+    h3 opponent calls:
+    div#attacks
+    h3 hit/miss:
+    div#result
+   
+  

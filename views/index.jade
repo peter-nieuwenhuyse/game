@@ -1,0 +1,59 @@
+extends layout
+
+block append head
+  script(type='text/javascript' src='/javascripts/landing.js');
+block content
+  header
+  div#col1(class='fourth')
+    div#terminal(class="terminal")
+      h3 battle terminal_1
+      p 
+       | Welcome on the bridge Commander </br></br> 
+       | First objective...</br></br> 
+       span(class="user") please enter a username:
+         span 
+           input#username(type="text", placeholder="", autofocus=true)
+    div#terminal2(class="terminal hidden")
+      h3 Battles:
+      div#new_room
+        p
+          Span start a new room
+          input#newroom(type='text');
+          input#new_room_btn(type="button", value="Start")
+      div#allrooms
+        input#refresh_rooms(type="button", value="refresh rooms")
+        div#header Or join a room</br>
+        div#rooms_list
+  div#col2(class='half')
+    div#grid
+    input#accept(type="button", value="Save setup")
+  div#col3
+    div#ships(class='fourth')
+      div(class='terminal')
+        h3 available fleet
+        p 
+          | 1X Carrier
+          | size 5
+          input#carrier(type="button" value="select" class="ship") </br> 
+        p
+          | 1X BattleShip
+          | size 4
+          input#Battleship(type="button" value="select" class="ship") </br> 
+        p  
+          | 1X Cruiser
+          | size 3
+          input#Cruiser(type="button" value="select" class="ship") </br> 
+        p
+          | 1X Submarine
+          | size 3
+          input#Submarine(type="button" value="select" class="ship") </br> 
+        p
+          | 1X Destroyer
+          | size 2
+          input#Destroyer(type="button" value="select" class="ship") </br> 
+
+        h3 Orientation
+        p(class="btngroup")  
+          input(class="horizontal" type="button" value="horizontal")
+          input(class="vertical" type="button" value="vertical")
+          input(class="reset" type="button" value="cancel")

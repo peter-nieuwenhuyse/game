@@ -1,6 +1,7 @@
 
 var roomInfra = io.connect('/room_infra');
 var gameCom = io.connect('/game_com');
+
 $(function(){
   var username="";
   
@@ -14,13 +15,12 @@ $(function(){
       var el= $('<div/>');
       el.html('username has been set to: ' + username);
       target.append(el);
-      
+      //animeren van de tekst
       setTimeout(function(){
         var el=$('<p/>');
         el.html('scanning battle maps');
         target.append(el);
         },250);
-       
       setTimeout(function(){
         var el=$('<p/>');
         el.html('battle maps scanned');
@@ -42,10 +42,11 @@ $(function(){
         el.html( 'commander ' + username + ' prepare for battle');
         target.append(el);
         },1250);
-        
+      //na animatie de beschikbare kamers tonen  
       setTimeout(function(){$('#terminal2').removeClass('hidden');},1500);
     }
   });
+ //opbouwen van het grid 
 var alpha=['A','B','C','D','E','F','G','H','I','J'];
 var target = $("#grid");
 var firstrow = $('<div class="row"></div>');
@@ -79,7 +80,7 @@ var firstcel = $('<div class="cell"></div>var');
       $('.cell').css({'height':gamewidth/11 +'px'});
       $('.cell').css({'padding':gamewidth/30 + 'px'});
     });
-    
+  //het zetten van de schepen voorlopige versie nog geen controle op beschikbare plaats en correcte setup schepen  
   $('.cell').on('click',function(event){
    event.preventDefault();
    $(this).toggleClass("free_field chosen");

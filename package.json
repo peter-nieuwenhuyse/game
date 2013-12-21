@@ -2,7 +2,6 @@
   "name": "zeeslag",
   "version": "0.0.1",
   "description":"sea battle game created as excercise on use of sockets and node",
-  "private": true,
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error no test specified\" && exit 1"

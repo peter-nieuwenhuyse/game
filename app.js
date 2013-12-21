@@ -14,7 +14,7 @@ var app = express();
 var sessionStore = new connect.session.MemoryStore();
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 5000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(express.favicon());

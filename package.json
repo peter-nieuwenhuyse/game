@@ -1,10 +1,24 @@
 {
   "name": "zeeslag",
   "version": "0.0.1",
+  "description":"sea battle game created as excercise on use of sockets and node",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "echo \"Error no test specified\" && exit 1"
   },
+  "author":"Peter Nieuwenhuyse",
+  "license":"MIT",
+  
+  "repository": {
+      "type":"git",
+      "url": "https://github.com/peter-nieuwenhuyse/game.git"
+  },
+  "keywords":[
+      "zeeslag",
+      "sea battle",
+      "peter nieuwenhuyse"
+  ],        
   "dependencies": {
     "express": "3.4.7",
     "jade": "*",
@@ -13,6 +27,6 @@
     "connect":"*"
   },
   "engines":{
-      "node":"*"
+      "node":"0.10.x"
   }
 }

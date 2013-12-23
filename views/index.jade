@@ -5,7 +5,7 @@ block append head
 block content
   div#gameinfo(class='clearfix')
     div#pirateimg
-      img(src="images/female_pirate.png" alt="female pirate")
+      img(src="images/female_pirate.png" alt="female pirate" id="female_pirate")
     div#terminal(class="clearfix")
       h1 Welcome
       p. 
@@ -39,3 +39,6 @@ block content
       div(class='choise') 
         a(href='' id='Destroyer' class='ship') Gallion </br>
           p XX
+  div#chatcontainer
+      div#messages
+      input(type="text" id="message" placeholder="your message")

@@ -22,6 +22,8 @@ var turn = 0;
 var win = 17;
 var roomName = decodeURI((RegExp("room" + '=' + '(.+?)(&|$)').exec(location.search)|| [, null])[1]);
 if(roomName){
+  var username= document.cookie;
+  console.log (username);
   roomInfra.emit('join_room', {'name':roomName});
   gameCom.on('attack_recieved',function(attacked){
     turn = 0;

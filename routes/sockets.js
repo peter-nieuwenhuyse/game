@@ -16,16 +16,19 @@ exports.initialize = function(server){
  var self = this;
  this.roominfra = io.of('/room_infra');
  this.roominfra.on('connection',function(socket){
+   socket.on('set_username',function(name){  
+       socket.set('nickname',name,function(){
+           console.log(name);
+       });
+   });  
    socket.on('join_room',function(room){
-     var username = socket.handshake.username;
-     socket.username= username;
-     console.log(username);
-     socket.set('username',username,function(){
+     socket.get('nickname',function(name){
+       console.log ('this socket has id:',name)
        socket.join(room.name);
        var comSocket = self.gameCom.sockets[socket.id];
        comSocket.join(room.name);
        comSocket.room= room.name;
-       socket.in(room.name).broadcast.emit('player_entered', {'name':username});
+       socket.in(room.name).broadcast.emit('player_entered', {'name':name});
      });
    });//end join_room
    socket.on("get_rooms", function(){

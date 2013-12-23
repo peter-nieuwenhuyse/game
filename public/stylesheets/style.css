@@ -51,9 +51,10 @@ body {
 }
 /*speelveld*/
 #grid{
-    padding-top:15px;
+    padding:0;
     width:70%;
-    margin:auto;
+    margin: 15px auto;
+    background-image: url(../images/background_chat_50pr_opacity.png);
 }
 .cell{
     color:gold;
@@ -62,7 +63,8 @@ body {
     vertical-align:middle;
     display:block;
     float:left;
-    width:8.5%;
+    
+    width:9.09%;
     text-align: center;
     border-bottom:dotted thin gold;
     border-right: dotted thin gold;
@@ -81,7 +83,8 @@ body {
     margin:2%;
 }
 #shipcontainer a{
-    color: goldenrod;
+    color: black;
+    font-size: 14px;
     text-decoration: none;
     display:block;
     border:solid thin goldenrod;
@@ -91,10 +94,12 @@ body {
     float:left;
     width:10%;
     margin-right: 2%;
+    background-image: url(../images/background_chat_50pr_opacity.png);
 }
 #ships{
     width:80%;
     float:left;
+    background-image: url(../images/background_chat_50pr_opacity.png)
 }
 .choise{
     width:20%;
@@ -108,6 +113,23 @@ body {
 }
 .active{
     background-color: lightgoldenrodyellow;;
+}
+#chatcontainer{
+    width:35%;
+    float:right;
+    
+    position:fixed;
+    bottom:1%;
+    border:thin dotted goldenrod;
+    color:goldenrod;
+    background-image: url(../images/background_chat_50pr_opacity.png);
+    
+}
+
+#chatcontainer input[type=text]{
+    width:99%;
+    position:absolute;
+    bottom:0.5%;
 }
 
 /*Einde speelveld*/

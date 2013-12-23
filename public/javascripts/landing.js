@@ -1,3 +1,4 @@
+var roomInfra = io.connect('/room_infra');
 var positions_taken=[];
 var ship_chosen ="";
 var ship_active;
@@ -6,10 +7,24 @@ var orientation_hor = true;
 $(function(){
   var username="";
   var scrollwidth = $('#terminal').width();
+  var screenratio = screen.width/screen.height;
+  var target= $('#chatcontainer')
+  if(screenratio>1.6){
+      target.css({'height':screen.height/4-10 +'px'});
+  }else{
+      if(screenratio>1.3){
+          target.css({'height':(screen.height/5)*2-30 + 'px'});
+      }else{
+          target.css({'height':(screen.height/5)*2+22 + 'px'});
+      }
+  }
+  
+  
   $('#terminal').css({'height':((scrollwidth/4)*5)+10 + 'px'});
   if(document.cookie){
       username=document.cookie;
-      console.log(username);
+      roomInfra.emit("set_username",username);
+      console.log(typeof(username));
       step2(username);
       }else{
   $( "#username").keypress(function( event ){
@@ -17,6 +32,7 @@ $(function(){
       event.preventDefault();
       username = $('#username').val();
       document.cookie = username;
+      roomInfra.emit("set_username",username);
       step2(username);
     };
     });
@@ -28,7 +44,7 @@ $(function(){
           e.preventDefault();
           document.cookie = username + '; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
           location.reload();
-      })
+      });
       var el= $('<div id="info"/>');
       var message = "<p> Let's take a look at your battle strategy";
       message += "<ul>";
@@ -59,7 +75,7 @@ $(function(){
         firstel.html(alpha[i]);
         row.append(firstel);
         for(var j=0; j<10;j++){
-        var linkel= $('<a href="#" class="cell free_field" itemprop= '+ i+j+'></a>')
+        var linkel= $('<a href="#" class="cell free_field" itemprop= '+ i+j+'></a>');
         row.append(linkel);
         }
         target.append(row);
@@ -212,7 +228,7 @@ $(function(){
       });
   };
   function step3(){
-    var roomInfra = io.connect('/room_infra');
+    
     var target= $('#terminal');
     target.html('<h1>Rooms</h1><span>Select a room from the list to join a battle or create your own</span><input type="text" id="new_room" placeholder="create room")>');
     var el=$('<div id="rooms_list"></div>');

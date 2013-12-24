@@ -115,18 +115,19 @@ body {
 #chatcontainer{
     width:35%;
     float:right;
-    
-    position:fixed;
-    bottom:1%;
     border:thin dotted goldenrod;
     color:goldenrod;
     background-image: url(../images/background_chat_50pr_opacity.png);
+    overflow:hidden;
     
 }
-
+#messages{
+    height:90%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
 #chatcontainer input[type=text]{
     width:99%;
-    position:absolute;
     bottom:0.5%;
 }
 #create{
@@ -134,6 +135,20 @@ body {
     position: fixed;
     bottom:5%;
     right:5%;
+}
+.systemmessage{
+    width:100%;
+    color:black;
+    font-style: italic;
+    background-image: url(../images/error_background.png);
+}
+.recieved_message{
+    background-image: url(../images/recieved.png);
+    color:black;
+}
+.own_message{
+    background-image: url(../images/chosen.png);
+    color:black;
 }
 
 /*Einde speelveld*/

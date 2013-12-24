@@ -217,21 +217,14 @@ $(function(){
   function step3(){
     
     var target= $('#terminal');
-    target.html('<h1>Rooms</h1><span>Select a room from the list to join a battle or create your own</span><input type="text" id="new_room" placeholder="create room")>');
+    target.html('<h1>Rooms</h1><span>Select a room from the list to join a battle or create your own</span><input type="text" id="new_room" placeholder="create room")></br> <a href="" id="refresh_rooms"> Refresh roomlist</a>');
     var el=$('<div id="rooms_list"></div>');
     target.append(el);
-    roomInfra.emit("get_rooms",{});
-    roomInfra.on("rooms_list", function(rooms){
-    $('rooms_list').empty();
-    for(var room in rooms){
-      var roomDiv = '<div class="room_div"><span class="room_name">' + room + '</span><span class="room_users">[' +rooms[room] + ' Users]</span>';
-      if(rooms[room]<2){
-      roomDiv += '    <a class="room" href="/gameroom?room=' + room + '"> Join</a>';
-      }
-     roomDiv +='</div></br>';
-    $('#rooms_list').append(roomDiv);
-    }
-  });
+    roomlist();
+    $('#refresh_rooms').on('click',function(e){
+        e.preventDefault();
+        roomlist();
+    });
   $('#new_room').keypress(function(e){
     if (e.which===13){
         e.preventDefault();
@@ -241,4 +234,17 @@ $(function(){
   }
 });
 
-
+function roomlist(){
+roomInfra.emit("get_rooms",{});
+    roomInfra.on("rooms_list", function(rooms){
+    $('#rooms_list').empty();
+    for(var room in rooms){
+      var roomDiv = '<div class="room_div"><span class="room_name">' + room + '</span><span class="room_users">[' +rooms[room] + ' Users]</span>';
+      if(rooms[room]<2){
+      roomDiv += '    <a class="room" href="/gameroom?room=' + room + '"> Join</a>';
+      }
+     roomDiv +='</div></br>';
+    $('#rooms_list').append(roomDiv);
+    }
+  });
+}

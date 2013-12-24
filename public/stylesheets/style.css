@@ -35,12 +35,22 @@ body {
 
 /* LAYOUT*/
 
-.fourth{
+.thirth{
     margin:0;
     padding:0;
     border:none;
     float:left;
-    width:25%;
+    width:33%;
+}
+#terminal2{
+    background-image: url('../images/paper_scroll.png');
+    background-repeat:no-repeat;
+    background-size: 100%;
+    width: 80%;
+    padding-top:1.5em;
+    text-align: center;
+    overflow:auto;
+    margin: auto;
 }
 .half{
     margin:0;
@@ -118,15 +128,29 @@ body {
     border:thin dotted goldenrod;
     color:goldenrod;
     background-image: url(../images/background_chat_50pr_opacity.png);
-    overflow:hidden;
-    
+    overflow:hidden; 
+}
+#chatcontainer2{
+    width:30%;
+    margin: 3em auto;
+    position:fixed;
+    left:35%;
+    height:150px;
+    border:thin dotted goldenrod;
+    color:goldenrod;
+    background-image: url(../images/background_chat_50pr_opacity.png);
+    overflow:hidden; 
 }
 #messages{
-    height:90%;
+    height:87%;
     overflow-x: hidden;
     overflow-y: scroll;
 }
 #chatcontainer input[type=text]{
+    width:99%;
+    bottom:0.5%;
+}
+#chatcontainer2 input[type=text]{
     width:99%;
     bottom:0.5%;
 }
@@ -149,6 +173,14 @@ body {
 .own_message{
     background-image: url(../images/chosen.png);
     color:black;
+}
+#terminal2 h1{
+    padding:0;
+    margin:0;
+}
+#terminal2 h3{
+    margin-bottom:0;
+    margin-top:0;
 }
 
 /*Einde speelveld*/

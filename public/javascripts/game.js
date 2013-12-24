@@ -52,7 +52,7 @@ gameCom.on('attack_result',function(result,field){
   if (result===true){
     var i = Math.floor(Math.random()*5);
     console.log(i);
-    $('#messages').html('<h1>HIT</h1>' + messages_hit[i]);
+    $('#game_messages').html('<h1>HIT</h1>' + messages_hit[i]);
     $('.free_field').each(function(){
       if($(this).attr('itemprop')=== field){
         $(this).css({'background-color':'green'}).removeClass('free_field');
@@ -62,12 +62,12 @@ gameCom.on('attack_result',function(result,field){
           gameCom.emit('win');
           var el= $('<div/>');
           el.html('<h1> WINNER</h1>');
-          $('#messages').append(el);
+          $('#game_messages').append(el);
         }
       }
     });
   }else{
-    $('#messages').html('<h1>MISS</h1>' + messages_miss[Math.floor(Math.random()*5)]);
+    $('#game_messages').html('<h1>MISS</h1>' + messages_miss[Math.floor(Math.random()*5)]);
     $('.free_field').each(function(){
       if($(this).attr('itemprop')=== field){
         $(this).css({'background-color':'gray'}).removeClass('free_field');
@@ -78,12 +78,14 @@ gameCom.on('attack_result',function(result,field){
 });
 gameCom.on('lose',function(){
   turn=1;
-  $('#messages').html('Better luck next time commander');
+  $('#game_messages').html('Better luck next time commander');
   var el = $('<div/>');
   el.html('<h1> You LOSE </h1>');
-  $('#messages').append(el);
+  $('#game_messages').append(el);
 });
   $(function(){
+      $('#terminal2').css({'height': ($('#terminal2').width()/4)*5 + 'px'})
+      $('#chatcontainer2').css({'top':($('#terminal2').height()+25)+'px'});
     $('.free_field').on('click', function(event){
       event.preventDefault();
       if(turn !== 1){

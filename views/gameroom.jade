@@ -5,17 +5,24 @@ block append head
   script(type='text/javascript' src='/javascripts/game.js')
 
 block content
-  header
-  div(class='fourth')
+  div(class='thirth')
     div#oponent_grid
-  div#messagebox(class="terminal messages")
-    p game messages
-    div#messages
-  div#own_grid(class='fourth')
-  div(class='small')
-    h3 opponent calls:
-    div#attacks
-    h3 hit/miss:
-    div#result
+  div(class='thirth')
+    div#terminal2(class="clearfix")
+      h1 game messages
+      h3 you'r last result:
+      div#game_messages
+      h3 opponent calls:
+      div#attacks
+      h3 oponent result:
+      div#result
+  div(class='thirth')
+    div#own_grid
+  div#chatcontainer2
+      div#messages
+      input(type="text" id="message" placeholder="your message")
+   div#create &copy; Created by 
+              a(href="http://www.pni-design.be") peter nieuwenhuyse
+    
    
   

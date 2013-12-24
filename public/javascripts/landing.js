@@ -7,19 +7,6 @@ var orientation_hor = true;
 $(function(){
   var username="";
   var scrollwidth = $('#terminal').width();
-  var screenratio = screen.width/screen.height;
-  var target= $('#chatcontainer')
-  if(screenratio>1.6){
-      target.css({'height':screen.height/4-10 +'px'});
-  }else{
-      if(screenratio>1.3){
-          target.css({'height':(screen.height/5)*2-30 + 'px'});
-      }else{
-          target.css({'height':(screen.height/5)*2+22 + 'px'});
-      }
-  }
-  
-  
   $('#terminal').css({'height':((scrollwidth/4)*5)+10 + 'px'});
   if(document.cookie){
       username=document.cookie;

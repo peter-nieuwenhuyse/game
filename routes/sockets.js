@@ -25,6 +25,9 @@ exports.initialize = function(server){
      socket.get('nickname',function(name){
        console.log ('this socket has id:',name)
        socket.join(room.name);
+       var chatCom= self.chatInfra.sockets[socket.id];
+       chatCom.join(room.name);
+       chatCom.room=(room.name);
        var comSocket = self.gameCom.sockets[socket.id];
        comSocket.join(room.name);
        comSocket.room= room.name;

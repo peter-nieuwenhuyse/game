@@ -117,7 +117,7 @@ $(function(){
       if(free_field != false){
       for (var i = 0 ; i<size ;i++){
         $el.toggleClass("free_field chosen");
-        $el.html('X');
+        
         positions_taken.push($el.attr('itemprop'));
         
         $el= $el.next();
@@ -151,7 +151,7 @@ $(function(){
           $('.free_field').each(function(){
             if($(this).attr('itemprop')== propvalue){
               $(this).toggleClass('free_field chosen');
-              $(this).html('X');
+              
               
               positions_taken.push($(this).attr('itemprop'));
             }

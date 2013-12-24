@@ -73,9 +73,7 @@ body {
     color:lightblue;
 }
 .chosen{
-    color:lightskyblue;
-    font-weight: bold;
-    font-size: 1em;
+    background-image: url('../images/chosen.png');
 }
 #shipcontainer{
     width:60%;
@@ -130,6 +128,12 @@ body {
     width:99%;
     position:absolute;
     bottom:0.5%;
+}
+#create{
+    color:goldenrod;
+    position: fixed;
+    bottom:5%;
+    right:5%;
 }
 
 /*Einde speelveld*/

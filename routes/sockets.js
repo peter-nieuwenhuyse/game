@@ -44,18 +44,6 @@ exports.initialize = function(server){
  });//end socket.on connection
  this.gameCom = io.of('/game_com');
  this.gameCom.on('connection',function(socket){
-   console.log ('gameCom established');
-   var usercoords=[];
-   socket.usercoords=usercoords;
-   var user = socket.handshake.username;
-   socket.username = user;
-    socket.on("setup_ok",function(data){
-     console.log(data.length);
-     for(var i=0;i<data.length;i++)
-     {
-      usercoords.push(data[i]);
-    }
-   });
    socket.on("send_attempt",function(coords){
      socket.broadcast.to(socket.room).emit('attack_recieved',coords);
    });
@@ -65,5 +53,11 @@ exports.initialize = function(server){
   socket.on('win',function(){
     socket.broadcast.to(socket.room).emit('lose');
   });
+ });
+ this.chatInfra = io.of('/chat_infra');
+ this.chatInfra.on('connection', function(socket){
+   socket.on('send_message', function(username,message){
+       socket.broadcast.to(socket.room).emit('message_recieved',username,message);
+   });
  });
 };//end initialize

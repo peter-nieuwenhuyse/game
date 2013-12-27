@@ -19,6 +19,7 @@ var messages_hit =[
 ];
 
 var turn = 0;
+var first_attack=0; 
 var win = 17;
 var roomName = decodeURI((RegExp("room" + '=' + '(.+?)(&|$)').exec(location.search)|| [, null])[1]);
 if(roomName){
@@ -27,6 +28,10 @@ if(roomName){
   roomInfra.emit('join_room', {'name':roomName});
   gameCom.on('attack_recieved',function(attacked){
     turn = 0;
+    if(first_attack !==0){
+    $('#turn').toggleClass('hidden');
+    $('#Oturn').toggleClass('hidden');
+    }
     $('#attacks').html('<h1>' + attacked + '</h1>');
     var hit = false;
     for ( var i=0; i<coords.length; i++){
@@ -89,9 +94,12 @@ gameCom.on('lose',function(){
     $('.free_field').on('click', function(event){
       event.preventDefault();
       if(turn !== 1){
+        first_attack=1;
         var el=this;
         var itemprop = el.getAttribute('itemprop');
         gameCom.emit('send_attempt',itemprop);
+        $('#turn').toggleClass('hidden');
+        $('#Oturn').toggleClass('hidden');
         turn =1;
         console.log (el);
       }

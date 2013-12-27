@@ -6,7 +6,8 @@ block append head
 
 block content
   div(class='thirth')
-    div#oponent_grid
+    div#oponent_grid(class='clearfix')
+    div#turn(class='turn') Your turn
   div(class='thirth')
     div#terminal2(class="clearfix")
       h1 game messages
@@ -17,7 +18,8 @@ block content
       h3 oponent result:
       div#result
   div(class='thirth')
-    div#own_grid
+    div#own_grid(class='clearfix')
+    div#Oturn(class='turn hidden') Opponent's turn
   div#chatcontainer2
       div#messages
       input(type="text" id="message" placeholder="your message")
